@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Card, Icon, Image, Grid, Header } from 'semantic-ui-react'
+import { Card, Icon, Image, Grid, Header, Accordion } from 'semantic-ui-react'
 
 
 const boards_data = [
@@ -101,6 +101,23 @@ const HeaderSection = ({section_title, title, intro}) => (
   </section>
 ) 
 
+const accordion_panels = [
+  {
+    title: "yo", 
+    content: "tsub"
+  },
+  {
+    title: "yotaaa", 
+    content: "tsubiib"
+  }
+]
+
+const ArgumentAccordion = () => (
+  <div className="ui text container">
+    <Accordion panels={accordion_panels} styled />
+  </div>
+)
+
 class App extends Component {
   render() {
     return (
@@ -117,6 +134,7 @@ class App extends Component {
           title="That's a new test section" 
           intro="Another intro text." 
         />
+        <ArgumentAccordion />
       </div>
     );
   }
