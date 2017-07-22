@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 
 const boards_data = [
@@ -17,13 +18,38 @@ const boards_data = [
   }  
 ] 
 
-const Board = ({ title, intro, main, img }) =>
-  <section id={title.toLowerCase().replace(/ /g, "-")}>
-    <img src={img} />
-    <h2>{title}</h2>
-    <h3>{intro}</h3>
-    <p>{main}</p>
-  </section>
+// const Board = ({ title, intro, main, img }) =>
+//   <section id={title.toLowerCase().replace(/ /g, "-")}>
+//     <img src={img} alt="" />
+//     <h2>{title}</h2>
+//     <h3>{intro}</h3>
+//     <p>{main}</p>
+//   </section>
+
+const Board = ({ title, intro, main, img }) => (
+  <Card>
+    <Image src={img} />
+    <Card.Content>
+      <Card.Header>
+        {title}
+      </Card.Header>
+      <Card.Meta>
+        <span className='intro'>
+          {intro}
+        </span>
+      </Card.Meta>
+      <Card.Description>
+        {main}
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='user' />
+        22 Friends
+      </a>
+    </Card.Content>
+  </Card>
+)
 
 const ListBoards = ({ category, boards }) => 
   <article>
